@@ -26,7 +26,8 @@ const Login = () => {
       </div>
         
       <div className="login-footer">
-        <p>Footer</p>
+        <p>This is my company's formation. If you want to 
+            contact with us, please call 0964737054.</p>
       </div>
     </div>
   );
