@@ -26,8 +26,29 @@ const Login = () => {
       </div>
         
       <div className="login-footer">
-        <p>This is my company's formation. If you want to 
-            contact with us, please call 0964737054.</p>
+        <div>This is my company's formation. If you want to 
+            contact with us, please call 0964737054. We do this
+            for you bro, lets use it. If you have a good day, look at this.
+            This will make your sense fucking bad!</div> 
+
+        
+        
+        <div className="f-image1">0000</div>
+
+        <div className="f-contact">
+            <div className="facebook">
+                <p>Facebook</p>
+                <div className="i-facebook">0</div>
+            </div>
+
+            <div>Lozzzzzzzzzzzzzzzzz</div>
+
+            <div className="instagram">
+                <p>Instagram</p>
+                <div className="i-insta1">0</div>
+                <div className="i-insta2">0</div>
+            </div>
+        </div>
       </div>
     </div>
   );
