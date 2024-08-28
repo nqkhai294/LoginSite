@@ -1,4 +1,6 @@
 import "./Login.scss";
+import { FaUserAlt } from "react-icons/fa";
+import { FaLock } from "react-icons/fa";
 
 const Login = () => {
   return (
@@ -12,11 +14,22 @@ const Login = () => {
           <div className="image2">Image 2</div>
           <div className="image3">Image 3</div>
 
-          <div className="login">
-            <h1>Login</h1>
-            <form>
-              <input type="text" placeholder="Username" />
-              <input type="password" placeholder="Password" />
+          <div className="wrapper">
+            
+            <form action="">
+              <h1>Login</h1>
+              <div className="input-box">
+                  <input type="text" placeholder="Username" />
+                  <FaUserAlt className="icon"/>
+              </div>
+              <div className="input-box">
+                <input type="password" placeholder="Password" />
+                <FaLock className="icon"/>
+              </div>
+              <div className="remember-me">
+                <label><input type="checkbox"/>Remember me
+                </label>
+              </div>
               <button>Login</button>
             </form>
           </div>
@@ -41,7 +54,7 @@ const Login = () => {
                 <div className="i-facebook">0</div>
             </div>
 
-            <div>Lozzzzzzzzzzzzzzzzz</div>
+            <div>Paramecia/Demacia</div>
 
             <div className="instagram">
                 <p>Instagram</p>

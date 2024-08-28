@@ -1,20 +1,28 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
 .login-body {
     display: flex;
-    height: 650px;
-    background-color: #f5f5f5;
+    height: 100vh;
+    background: url(../../assets/background.jpg);
+    background-size: cover;
+    background-position: center;
     position: relative;
 
     .left-image {
-        
+        position: fixed;
+        z-index: 1;
         width: 20%;
-        height: 75%;
+        height: 100vh;
         background-size: cover;
         background-image: url(../../assets/left_image.jpeg);
     }
 
     .right-image {
+        position: fixed;
+        z-index: 1;
+        right: 0px;
         width: 20%;
-        height: 75%;
+        height: 100vh;
         background-size: cover;
         background-image: url(../../assets/right_image.jfif);
     }
@@ -22,6 +30,92 @@
     .login-form {
         width: 60%;
         height: 100%;
+
+        .wrapper {
+            position: absolute;
+            top: 40%;
+            left: 50%;
+            width: 40%;
+            transform: translate(-50%, -50%);
+            background: transparent;
+            backdrop-filter: blur(10px);
+            border: 2px solid #fff;
+            color: black;
+            margin-left: auto;
+            padding: 30px 40px;
+            border-radius: 20px;
+            font-family:'Poppins', sans-serif;
+            
+            h1 {
+                text-align: center;
+                color: #fff;  
+            }
+
+            .input-box {
+                position:relative;
+                width: auto;
+                height: 50px;
+                margin: 20px;
+
+                input {
+                    width: 100%;
+                    height: 100%;
+                    background: transparent;
+                    outline-color: green;
+                    border-color: black;
+                    border-radius: 20px;
+                    margin: 5px;
+                    font-size: 16px;
+                    color: #fff;
+                    font-weight: 550;  
+                }
+
+                input::placeholder {
+                    color: #fff;
+                }
+
+                .icon {
+                    position: absolute;
+                    right: 10px;
+                    top: 70%;
+                    transform: translateY(-50%);
+                    font-size: 20px;
+                }
+            }
+
+            button {
+                width: 80%;
+                position:relative;
+                height: 45px;
+                border: none;
+                outline: none;
+                border-radius: 20px;
+                font-size: 16px;
+                color: #333;
+                font-weight: 700;
+                box-shadow: 0 0 10px rgba (0, 0, 0, .1);
+                margin-bottom: 20px;
+                text-align: center;
+                transform: translateX(15%);
+                
+                
+            }
+
+            .remember-me {
+                font-size: 20px;
+                margin: 10px;
+                margin-left: 20px;
+                font-weight: 600;
+                
+                
+            }
+
+            .button-class {
+                text-align: center;
+                background-color: red;
+            }
+            
+        }
     }
 }
 
@@ -44,7 +138,7 @@
     }
 
     .f-image1 {
-        height: 150px;
+        height: 100px;
         width: 250px;
         background-color: aqua;
     }
