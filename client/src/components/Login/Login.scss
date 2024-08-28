@@ -14,7 +14,7 @@
         width: 20%;
         height: 100vh;
         background-size: cover;
-        background-image: url(../../assets/left_image.jpeg);
+        background-image: url(../../assets/left_image.jpg);
     }
 
     .right-image {
@@ -24,7 +24,7 @@
         width: 20%;
         height: 100vh;
         background-size: cover;
-        background-image: url(../../assets/right_image.jfif);
+        background-image: url(../../assets/right_image.jpg);
     }
 
     .login-form {
@@ -124,29 +124,57 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    padding-right: auto;
-    padding-left: auto;
     color:#f5f5f5;
-    height: 350px;
+    
     background-color: #333;
     position: relative;
 
+    .f-infor {
+        background-color:cadetblue;
+        width: 450px;
+    }
+
     div {
-        max-width: 450px;
+        max-width: 650px;
 
         
     }
 
     .f-image1 {
-        height: 100px;
-        width: 250px;
-        background-color: aqua;
+        height: 200px;
+        width: 300px;
+        background-image: url(../../assets/captain.jfif);
+        background-size: cover;
     }
 
     .f-contact {
         display: flex;
+        width: 450px;
         justify-content: space-between;
         margin-bottom: 20px;
-        background-color: aquamarine;
+        
+        .facebook {
+            background-color: blue;
+            
+            height: 75px;
+            
+        }
+
+        .f-text {
+            display: flex;
+            background-color: yellow;
+            height: 75px;
+            width: 200px;
+            align-items: center;
+            justify-content: center;
+            color: black;
+        }
+
+        .instagram {
+            background-color: red;
+            
+            height: 75px;
+            
+        }
     }
 }
