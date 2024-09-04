@@ -22,9 +22,9 @@ const Login = () => {
 
   const fetchData = async (data) => {
     try {
-      const res = await axios.post("http://localhost:5000/api/login", data);
+      const res = await axios.post("http://localhost:1337/api/userwebs", data);
       console.log(res);
-      if (res.status === 200) {
+      if (res.status === 200 || res.status === 201) {
         setSubmitSuccess(true);
         console.log("Login successfully!");
       }
@@ -42,10 +42,10 @@ const Login = () => {
 
     // Send data to database
     if (
-      (userInfor.username !== "") &
-      (userInfor.username !== undefined) &
-      (userInfor.password !== "") &
-      (userInfor.password !== undefined)
+      userInfor.username !== "" &&
+      userInfor.username !== undefined &&
+      userInfor.password !== "" &&
+      userInfor.password !== undefined
     ) {
       const data = {
         username: userInfor.username,
@@ -62,17 +62,31 @@ const Login = () => {
 
     // Handle error for username
     if ((userInfor.username === "") | (userInfor.username === undefined)) {
-      let errorItem = document.getElementsByClassName("error_username");
+      let errorItem = document.getElementById("error_username");
       errorItem.innerHTML = "Username is required!";
       console.log(userInfor.username);
       setSubmitSuccess(false);
     }
 
+    if (userInfor.username.length < 6 && userInfor.username.length > 0) {
+      let errorItem = document.getElementById("error_username");
+      errorItem.innerHTML = "Username must be at least 6 characters!";
+      console.log("Username must be at least 6 characters!");
+      setSubmitSuccess(false);
+    }
+
     // Handle error for password
     if ((userInfor.password === "") | (userInfor.password === undefined)) {
-      let errorItem = document.getElementsByClassName("error_password");
+      let errorItem = document.getElementById("error_password");
       errorItem.innerHTML = "Password is required!";
       console.log("Password is required!");
+      setSubmitSuccess(false);
+    }
+
+    if (userInfor.password.length < 6 && userInfor.password.length > 0) {
+      let errorItem = document.getElementById("error_password");
+      errorItem.innerHTML = "Password must be at least 6 characters!";
+      console.log("Password must be at least 6 characters!");
       setSubmitSuccess(false);
     }
   };
@@ -90,6 +104,7 @@ const Login = () => {
           <div className="wrapper">
             <form action="" onSubmit={(e) => handleSubmit(e)}>
               <h1>Login</h1>
+              <div id="error_username" className="error"></div>
               <div className="input-box username">
                 <input
                   type="text"
@@ -98,8 +113,9 @@ const Login = () => {
                   onChange={(e) => handleChange(e)}
                 />
                 <FaUserAlt className="icon" />
-                <div id="error_username" className="error"></div>
               </div>
+
+              <div id="error_password" className="error"></div>
               <div className="input-box password">
                 <input
                   type="password"
@@ -108,7 +124,6 @@ const Login = () => {
                   onChange={(e) => handleChange(e)}
                 />
                 <FaLock className="icon" />
-                <div id="error_password" className="error"></div>
               </div>
               <div className="remember-me">
                 <label>

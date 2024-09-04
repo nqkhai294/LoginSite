@@ -1,9 +1,9 @@
 'use strict';
 
 /**
- * user-web router
+ * userweb router
  */
 
 const { createCoreRouter } = require('@strapi/strapi').factories;
 
-module.exports = createCoreRouter('api::user-web.user-web');
+module.exports = createCoreRouter('api::userweb.userweb');
