@@ -3,6 +3,7 @@ import { FaUserAlt } from "react-icons/fa";
 import { FaLock } from "react-icons/fa";
 import { useState } from "react";
 import axios from "axios";
+import { NavLink } from "react-router-dom";
 
 const Login = () => {
   const [submitSuccess, setSubmitSuccess] = useState(false);
@@ -131,7 +132,11 @@ const Login = () => {
                   Remember me
                 </label>
               </div>
-              <button type="submit">Login</button>
+              <button type="submit" className="btn-login">
+                <NavLink to="/loading" className="nav-link">
+                  Login
+                </NavLink>
+              </button>
             </form>
           </div>
         </div>

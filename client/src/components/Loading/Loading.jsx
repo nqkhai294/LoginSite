@@ -1,11 +1,13 @@
-import './Loading.scss';
+import "./Loading.scss";
 
 const Loading = () => {
-    return (
-        <div className="loading">
+  return (
+    <div className="loading">
+      <div className="loading-icon">
         <h1>Loading...</h1>
-        </div>
-    );
-}
+      </div>
+    </div>
+  );
+};
 
 export default Loading;
