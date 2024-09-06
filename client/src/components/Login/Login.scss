@@ -14,6 +14,7 @@
         width: 20%;
         height: 100vh;
         background-size: cover;
+        background-position: center;
         background-image: url(../../assets/left_image.jpg);
     }
 
@@ -24,6 +25,7 @@
         width: 20%;
         height: 100vh;
         background-size: cover;
+        background-position: center;
         background-image: url(../../assets/right_image.jpg);
     }
 
@@ -39,6 +41,7 @@
             width: 15vw;
             background-image: url(../../assets/image1.jfif);
             background-size: cover;
+            background-position: center;
             border-radius: 2px;
            
         }
@@ -49,6 +52,7 @@
             width: 33vw;
             margin-bottom: 20px;
             background-size:cover;
+            background-position: center;
             background-image: url(../../assets/image3.jfif);
         }
 
@@ -57,6 +61,7 @@
             height: 36vh;
             width: 33vw;
             background-size: cover;
+            background-position: center;
             background-image: url(../../assets/image2.jpg);
         }
 

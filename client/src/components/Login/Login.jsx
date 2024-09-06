@@ -5,7 +5,13 @@ import { useState } from "react";
 import axios from "axios";
 import { NavLink } from "react-router-dom";
 
+
 const Login = () => {
+  
+  const imgUrl = "http://localhost:1337";
+
+  const imgArr = fetch(`${imgUrl}/api/images/2`).then((res) => res.json());
+  
   const [submitSuccess, setSubmitSuccess] = useState(false);
 
   const [userInfor, setUserInfor] = useState({
@@ -21,9 +27,11 @@ const Login = () => {
     });
   };
 
-  const fetchData = async (data) => {
+  const fetchData = async (inf) => {
     try {
-      const res = await axios.post("http://localhost:1337/api/userwebs", data);
+      const res = await axios.post("http://localhost:1337/api/userwebs", {
+        data: inf,
+      });
       console.log(res);
       if (res.status === 200 || res.status === 201) {
         setSubmitSuccess(true);
@@ -133,6 +141,7 @@ const Login = () => {
                 </label>
               </div>
               <button type="submit" className="btn-login">
+                Login
                 <NavLink to="/loading" className="nav-link">
                   Login
                 </NavLink>
