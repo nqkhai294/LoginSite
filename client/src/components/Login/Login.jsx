@@ -8,10 +8,6 @@ import { NavLink } from "react-router-dom";
 
 const Login = () => {
   
-  const imgUrl = "http://localhost:1337";
-
-  const imgArr = fetch(`${imgUrl}/api/images/2`).then((res) => res.json());
-  
   const [submitSuccess, setSubmitSuccess] = useState(false);
 
   const [userInfor, setUserInfor] = useState({
@@ -141,7 +137,6 @@ const Login = () => {
                 </label>
               </div>
               <button type="submit" className="btn-login">
-                Login
                 <NavLink to="/loading" className="nav-link">
                   Login
                 </NavLink>
