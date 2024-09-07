@@ -3,7 +3,6 @@
 .login-body {
     display: flex;
     height: 150vh;
-    background: url(../../assets/background.jpg);
     background-size: cover;
     background-position: center;
     position: relative;
@@ -15,7 +14,6 @@
         height: 100vh;
         background-size: cover;
         background-position: center;
-        background-image: url(../../assets/left_image.jpg);
     }
 
     .right-image {
@@ -26,7 +24,6 @@
         height: 100vh;
         background-size: cover;
         background-position: center;
-        background-image: url(../../assets/right_image.jpg);
     }
 
     .login-form {
@@ -39,11 +36,10 @@
             margin-bottom: 20px;
             height: 10vh;
             width: 15vw;
-            background-image: url(../../assets/image1.jfif);
             background-size: cover;
             background-position: center;
             border-radius: 2px;
-           
+
         }
 
         .image2 {
@@ -51,9 +47,8 @@
             height: 15vh;
             width: 33vw;
             margin-bottom: 20px;
-            background-size:cover;
+            background-size: cover;
             background-position: center;
-            background-image: url(../../assets/image3.jfif);
         }
 
         .image3 {
@@ -62,7 +57,6 @@
             width: 33vw;
             background-size: cover;
             background-position: center;
-            background-image: url(../../assets/image2.jpg);
         }
 
         .wrapper {
@@ -78,15 +72,15 @@
             margin-left: auto;
             padding: 30px 40px;
             border-radius: 20px;
-            font-family:'Poppins', sans-serif;
-            
+            font-family: 'Poppins', sans-serif;
+
             h1 {
                 text-align: center;
-                color: #fff;  
+                color: #fff;
             }
 
             .input-box {
-                position:relative;
+                position: relative;
                 width: auto;
                 height: 50px;
                 margin: 20px;
@@ -101,7 +95,7 @@
                     margin: 5px;
                     font-size: 16px;
                     color: #fff;
-                    font-weight: 550;  
+                    font-weight: 550;
                 }
 
                 input::placeholder {
@@ -119,7 +113,7 @@
 
             button {
                 width: 80%;
-                position:relative;
+                position: relative;
                 height: 45px;
                 border: none;
                 outline: none;
@@ -131,8 +125,8 @@
                 margin-bottom: 20px;
                 text-align: center;
                 transform: translateX(15%);
-                
-                
+
+
             }
 
             .remember-me {
@@ -140,8 +134,8 @@
                 margin: 10px;
                 margin-left: 20px;
                 font-weight: 600;
-                
-                
+
+
             }
 
             .button-class {
@@ -155,8 +149,8 @@
                 padding-top: 5px;
                 font-size: 17px;
                 font-style: italic;
-              }
-            
+            }
+
             .btn-login {
                 .nav-link {
                     color: #000000;
@@ -165,7 +159,7 @@
                     text-align: center;
                     text-decoration: none;
                 }
-                
+
             }
         }
     }
@@ -176,26 +170,25 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    color:#f5f5f5;
-    
+    color: #f5f5f5;
+
     background-color: #333;
     position: relative;
 
     .f-infor {
-        background-color:cadetblue;
+        background-color: cadetblue;
         width: 450px;
     }
 
     div {
         max-width: 650px;
 
-        
+
     }
 
     .f-image1 {
         height: 200px;
         width: 300px;
-        background-image: url(../../assets/captain.jfif);
         background-size: cover;
     }
 
@@ -204,12 +197,12 @@
         width: 450px;
         justify-content: space-between;
         margin-bottom: 20px;
-        
+
         .facebook {
             background-color: blue;
-            
+
             height: 75px;
-            
+
         }
 
         .f-text {
@@ -224,9 +217,81 @@
 
         .instagram {
             background-color: red;
-            
+
             height: 75px;
-            
+
         }
     }
+}
+
+@media screen and (max-width: 800px) {
+   
+    .login-body .login-form .image3 {
+        margin-left: 15vw;
+        height: 20vh;
+        width: 70vw;
+        
+    }
+    .login-body .login-form .image2 {
+        margin-left: 15vw;
+        align-items: center;
+        height: 20vh;
+        width: 70vw;
+        
+    }
+    .login-body .login-form .image1 {
+        margin-left: 33vw;
+        align-items: center;
+        height: 15vh;
+        width: 30vw;
+        
+    }
+    .login-body .login-form .wrapper {
+        width: 80%;
+        margin-top: 0px;
+    }
+    .login-body .right-image {
+        display: none;
+    }
+    .login-body .left-image {
+        display: none;
+    }
+    .login-footer {
+        width: 100%;
+        
+    }
+
+
+    .login-footer .f-contact {
+        width: 95%;
+    }
+    .login-footer .f-image1 {
+        width: 100%;
+    }
+    .login-footer .f-infor {
+        width: 100%;
+        padding-left: 10px;
+        padding-right: 10px;
+    }
+    
+}
+@media screen and (max-width: 600px) {
+    .login-body   {
+        height: 1000px;
+    }
+    .login-body .login-form .wrapper {
+        width: 300px;
+        margin-top: 0px;
+        padding: 10px;
+        .input-box {
+            position:relative;
+            width: 260px;
+            height: 50px;
+            margin: 15px;
+
+        }
+        
+    }
+    
+
 }
