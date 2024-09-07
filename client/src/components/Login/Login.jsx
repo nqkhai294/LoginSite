@@ -236,8 +236,7 @@ const Login = () => {
       <div className="login-footer">
         <div className="f-infor">
           This is my company's formation. If you want to contact with us, please
-          call 0964737054. We do this for you bro, lets use it. If you have a
-          good day, look at this. This will make your sense fucking bad!
+          call 0964737054. We do this for you bro, lets use it. Have a good day!
         </div>
 
         <div className="f-image1"

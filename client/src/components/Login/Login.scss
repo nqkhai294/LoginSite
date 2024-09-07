@@ -2,7 +2,7 @@
 
 .login-body {
     display: flex;
-    height: 150vh;
+    height: 1000px;
     background-size: cover;
     background-position: center;
     position: relative;
@@ -14,6 +14,9 @@
         height: 100vh;
         background-size: cover;
         background-position: center;
+        object-fit: contain;
+        border: 1px solid #fff;
+            
     }
 
     .right-image {
@@ -24,6 +27,9 @@
         height: 100vh;
         background-size: cover;
         background-position: center;
+        object-fit: contain;
+        border: 1px solid #fff;
+            
     }
 
     .login-form {
@@ -34,12 +40,15 @@
             margin-left: 42vw;
             margin-top: 20px;
             margin-bottom: 20px;
-            height: 10vh;
+            height: 11vh;
             width: 15vw;
             background-size: cover;
             background-position: center;
+            object-fit: cover;
+            border: 1px solid #fff;
             border-radius: 2px;
 
+        
         }
 
         .image2 {
@@ -49,6 +58,8 @@
             margin-bottom: 20px;
             background-size: cover;
             background-position: center;
+            border: 1px solid #fff;
+            border-radius: 2px;
         }
 
         .image3 {
@@ -57,6 +68,8 @@
             width: 33vw;
             background-size: cover;
             background-position: center;
+            border: 1px solid #fff;
+            border-radius: 2px;
         }
 
         .wrapper {
@@ -104,7 +117,7 @@
 
                 .icon {
                     position: absolute;
-                    right: 10px;
+                    right: 20px;
                     top: 70%;
                     transform: translateY(-50%);
                     font-size: 20px;
@@ -171,25 +184,26 @@
     justify-content: center;
     align-items: center;
     color: #f5f5f5;
-
+    border-top: 1px solid #fff;
     background-color: #333;
-    position: relative;
+    
 
     .f-infor {
         background-color: cadetblue;
         width: 450px;
+        margin: 30px 0px;
+        padding: 10px;
     }
 
     div {
         max-width: 650px;
-
-
     }
 
     .f-image1 {
         height: 200px;
         width: 300px;
         background-size: cover;
+        margin-bottom: 20px;
     }
 
     .f-contact {
@@ -224,74 +238,191 @@
     }
 }
 
-@media screen and (max-width: 800px) {
-   
-    .login-body .login-form .image3 {
-        margin-left: 15vw;
-        height: 20vh;
-        width: 70vw;
-        
+@media screen and (max-width: 1000px) {
+    .login-body {
+        .login-form{
+            .image1 {
+                object-fit: contain;
+                height: 11vh;
+                width: 16vw;
+            }
+
+            .image2 {
+                height: 14vh;
+
+            }
+
+            .image3 {
+                height: 28vh;
+                width: 33vw;
+                
+            }
+
+            .wrapper{
+                top: 70%;
+                
+                input::placeholder {
+                    color: #fff;
+                    font-size: 14px;
+                    padding-left: 5px;
+                }
+
+                .remember-me {
+                    font-size: 14px;
+                }
+            }
+
+            
+        }
     }
-    .login-body .login-form .image2 {
-        margin-left: 15vw;
-        align-items: center;
-        height: 20vh;
-        width: 70vw;
-        
-    }
-    .login-body .login-form .image1 {
-        margin-left: 33vw;
-        align-items: center;
-        height: 15vh;
-        width: 30vw;
-        
-    }
-    .login-body .login-form .wrapper {
-        width: 80%;
-        margin-top: 0px;
-    }
-    .login-body .right-image {
-        display: none;
-    }
-    .login-body .left-image {
-        display: none;
-    }
+
     .login-footer {
-        width: 100%;
+        .f-contact {
+            width: 42vw;
+        }
+        .f-image1 {
+            height: 25vh;
+            width: 38vw;
+        }
+        .f-infor {
+            width: 42vw;
+            margin: 30px 0px;
+            padding: 10px;
+        }
+    }
+}
+
+@media screen and (max-width: 800px) {
+
+
+    .login-body{
+        .login-form {
+            .image1 {
+                margin-left: 40vw;
+                height: 11vh;
+                width: 19vw;
+            }
+        }
+
         
     }
-
-
-    .login-footer .f-contact {
-        width: 95%;
-    }
-    .login-footer .f-image1 {
-        width: 100%;
-    }
-    .login-footer .f-infor {
-        width: 100%;
-        padding-left: 10px;
-        padding-right: 10px;
-    }
+   
+    
     
 }
 @media screen and (max-width: 600px) {
-    .login-body   {
-        height: 1000px;
-    }
-    .login-body .login-form .wrapper {
-        width: 300px;
-        margin-top: 0px;
-        padding: 10px;
-        .input-box {
-            position:relative;
-            width: 260px;
-            height: 50px;
-            margin: 15px;
+    .login-body {
+        .login-form {
+            .image1 {
+                margin-left: 38vw;
+                width: 24vw;
+            }
 
+            .image2 {
+                margin-left: 30vw;
+                height: 15vh;
+                width: 40vw;
+            }
+
+            .image3 {
+                margin-left: 30vw;
+                height: 30vh;
+                width: 40vw;
+            }
+
+            .wrapper {
+                .input-box {
+                margin: 10px 0px;
+                padding:0px;
+                font-size: 14px;
+                }
+
+                input::placeholder {
+                    color: #fff;
+                    font-size: 14px;
+                    padding-left: 5px;
+                }
+            }
         }
+    }
+
+    .login-footer {
+        .f-contact {
+           
+        }
+        .f-image1 {
+           
+        }
+        .f-infor {
+            
+        }
+    }
+
+}
+
+@media screen and (max-width: 500px) {
+
+    .login-container {
+        width: auto;
+        height: 178vh;
+    }
+
+    .login-body {
+        .left-image {
+            display: none;
+        }
+
+        .right-image {
+            display: none;
+        }
+
+        .login-form {
+            .image1 {
+                width: 43vw;
+                height: 9vh;
+                margin-left: 29vw;
+            }
+
+            .image2 {
+                width: 80vw;
+                height: 14vh;
+                margin-left: 10vw;
+            }
+
+            .image3 {
+                width: 80vw;
+                height: 30vh;
+                margin-left: 10vw;
+            }
+
+            .wrapper{
+                width: 76vw !important;
+                top: 78%;
+            }
+        }
+
         
     }
-    
 
+    .login-footer {
+        
+        .f-infor {
+            width: 80vw;
+            height: auto;
+            margin: 10px 0px;
+            padding: 10px;
+        }
+
+        .f-contact {
+            width: 80vw;
+            height: auto;
+        }
+
+        .f-image1 {
+            width: 60vw;
+            height: 18vh;
+        }
+
+        
+    }
 }
