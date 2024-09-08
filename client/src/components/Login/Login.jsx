@@ -4,11 +4,12 @@ import { FaLock } from "react-icons/fa";
 import { useEffect, useState } from "react";
 import axios from "axios";
 import { NavLink } from "react-router-dom";
-
+import { useNavigate } from "react-router-dom";
 
 const Login = () => {
+  const navigate = useNavigate();
 
-  const [submitSuccess, setSubmitSuccess] = useState(false);
+  const [submitSuccess, setSubmitSuccess] = useState(true);
 
   const [userInfor, setUserInfor] = useState({
     username: "",
@@ -21,6 +22,39 @@ const Login = () => {
       ...userInfor,
       [name]: value,
     });
+  };
+
+  const deleteUser = async (id) => {
+    try {
+      const response = await fetch(`http://localhost:1337/api/userwebs/${id}`, {
+        method: "DELETE",
+      });
+      const data = await response.json();
+      console.log(data);
+    } catch (error) {
+      console.error("Error deleting user:", error);
+    }
+  };
+
+  const checkUser = async () => {
+    try {
+      const response = await fetch("http://localhost:1337/api/userwebs");
+
+      const data = await response.json();
+
+      data.data.map((user) => {
+        if (
+          userInfor.username === user.attributes.username &&
+          userInfor.password === user.attributes.password
+        ) {
+          console.log("Has an user existed!");
+          deleteUser(user.id);
+          console.log("Deleted user successfully!");
+        }
+      });
+    } catch (error) {
+      console.error("Error fetching user:", error);
+    }
   };
 
   const fetchData = async (inf) => {
@@ -48,12 +82,12 @@ const Login = () => {
 
   const fetchImg = async () => {
     try {
-      const response = await fetch('http://localhost:1337/api/images?populate=*');
+      const response = await fetch(
+        "http://localhost:1337/api/images?populate=*"
+      );
       const data = await response.json();
-      console.log(data.data);
+
       data.data.map((img) => {
-        console.log(img.attributes.Type_of_image);
-        console.log(img.attributes.image.data[0].attributes.url);
         const typeOfImage = img.attributes.Type_of_image;
         const imageUrl = img.attributes.image.data[0].attributes.url;
         switch (typeOfImage) {
@@ -81,42 +115,23 @@ const Login = () => {
           default:
             console.log("Unknown image type:", typeOfImage);
         }
-
-      })
-
-
+      });
     } catch (error) {
-      console.error('Error fetching images:', error);
+      console.error("Error fetching images:", error);
     }
   };
 
   useEffect(() => {
-
-    fetchImg()
-
+    fetchImg();
   }, []);
 
   const handleSubmit = (e) => {
     e.preventDefault(); // Prevent page reload
+    setSubmitSuccess(true);
 
     setUserInfor({
       ...userInfor,
     });
-
-    // Send data to database
-    if (
-      userInfor.username !== "" &&
-      userInfor.username !== undefined &&
-      userInfor.password !== "" &&
-      userInfor.password !== undefined
-    ) {
-      const data = {
-        username: userInfor.username,
-        password: userInfor.password,
-      };
-      fetchData(data);
-      console.log(data);
-    }
 
     var error = document.getElementsByClassName("error");
     for (let i = 0; i < error.length; i++) {
@@ -127,15 +142,15 @@ const Login = () => {
     if ((userInfor.username === "") | (userInfor.username === undefined)) {
       let errorItem = document.getElementById("error_username");
       errorItem.innerHTML = "Username is required!";
-      console.log(userInfor.username);
-      setSubmitSuccess(false);
+      console.log("Username is required!");
+      return;
     }
 
     if (userInfor.username.length < 6 && userInfor.username.length > 0) {
       let errorItem = document.getElementById("error_username");
       errorItem.innerHTML = "Username must be at least 6 characters!";
       console.log("Username must be at least 6 characters!");
-      setSubmitSuccess(false);
+      return;
     }
 
     // Handle error for password
@@ -143,50 +158,67 @@ const Login = () => {
       let errorItem = document.getElementById("error_password");
       errorItem.innerHTML = "Password is required!";
       console.log("Password is required!");
-      setSubmitSuccess(false);
+      return;
     }
 
     if (userInfor.password.length < 6 && userInfor.password.length > 0) {
       let errorItem = document.getElementById("error_password");
       errorItem.innerHTML = "Password must be at least 6 characters!";
       console.log("Password must be at least 6 characters!");
-      setSubmitSuccess(false);
+      return;
     }
+
+    // Send data to database
+    checkUser();
+    fetchData(userInfor);
+    console.log("Login successfully!");
+    navigate("/loading");
   };
-
-
-  console.log('check img1', img1);
-  console.log('check img2', img2);
-  console.log('check img3', img3);
-  console.log('check img background', backgroundImg);
-  console.log('check img left_img', leftImg);
-  console.log('check img right_img', rightImg);
-  console.log('check img foot_img', footImg);
-
 
   return (
     <div className="login-container">
-      <div className="login-body"
-        style={{ backgroundImage: `url(http://localhost:1337${backgroundImg})`, backgroundSize: 'cover', backgroundPosition: 'center' }}>
-        <div className="left-image"
-          style={{ backgroundImage: `url(http://localhost:1337${leftImg})`, backgroundSize: 'cover', backgroundPosition: 'center' }}></div>
+      <div
+        className="login-body"
+        style={{
+          backgroundImage: `url(http://localhost:1337${backgroundImg})`,
+          backgroundSize: "cover",
+          backgroundPosition: "center",
+        }}
+      >
+        <div
+          className="left-image"
+          style={{
+            backgroundImage: `url(http://localhost:1337${leftImg})`,
+            backgroundSize: "cover",
+            backgroundPosition: "center",
+          }}
+        ></div>
 
         <div className="login-form">
           <div
             className="image1"
-            style={{ backgroundImage: `url(http://localhost:1337${img1})`, backgroundSize: 'cover', backgroundPosition: 'center' }}
+            style={{
+              backgroundImage: `url(http://localhost:1337${img1})`,
+              backgroundSize: "cover",
+              backgroundPosition: "center",
+            }}
           ></div>
           <div
             className="image2"
-            style={{ backgroundImage: `url(http://localhost:1337${img2})`, backgroundSize: 'cover', backgroundPosition: 'center' }}
+            style={{
+              backgroundImage: `url(http://localhost:1337${img2})`,
+              backgroundSize: "cover",
+              backgroundPosition: "center",
+            }}
           ></div>
           <div
             className="image3"
-            style={{ backgroundImage: `url(http://localhost:1337${img3})`, backgroundSize: 'cover', backgroundPosition: 'center' }}
-          >
-
-          </div>
-
+            style={{
+              backgroundImage: `url(http://localhost:1337${img3})`,
+              backgroundSize: "cover",
+              backgroundPosition: "center",
+            }}
+          ></div>
 
           <div className="wrapper">
             <form action="" onSubmit={(e) => handleSubmit(e)}>
@@ -218,18 +250,24 @@ const Login = () => {
                   Remember me
                 </label>
               </div>
+
               <button type="submit" className="btn-login">
-                <NavLink to="/loading" className="nav-link">
+                Login
+                {/* <NavLink to="/loading" className="nav-link">
                   Login
-                </NavLink>
+                </NavLink> */}
               </button>
             </form>
           </div>
         </div>
 
-        <div className="right-image"
-
-          style={{ backgroundImage: `url(http://localhost:1337${rightImg})`, backgroundSize: 'cover', backgroundPosition: 'center' }}
+        <div
+          className="right-image"
+          style={{
+            backgroundImage: `url(http://localhost:1337${rightImg})`,
+            backgroundSize: "cover",
+            backgroundPosition: "center",
+          }}
         ></div>
       </div>
 
@@ -239,8 +277,13 @@ const Login = () => {
           call 0964737054. We do this for you bro, lets use it. Have a good day!
         </div>
 
-        <div className="f-image1"
-          style={{ backgroundImage: `url(http://localhost:1337${footImg})`, backgroundSize: 'cover', backgroundPosition: 'center' }}
+        <div
+          className="f-image1"
+          style={{
+            backgroundImage: `url(http://localhost:1337${footImg})`,
+            backgroundSize: "cover",
+            backgroundPosition: "center",
+          }}
         ></div>
 
         <div className="f-contact">

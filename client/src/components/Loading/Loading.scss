@@ -1,22 +1,33 @@
 .loading {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    width: 100%;
-    background-color: rgba(254, 242, 242, 0.5);
-    position: fixed;
-    top: 0;
-    left: 0;
-    z-index: 1000;
+  height: 100vh;
+  padding-top: 70px;
+  position: relative;
+  align-items: center;
 
-    .loading-icon {
-        height: 20vh;
-        width: 40vh;
-        border: 2px solid black;
-        background-color: aqua;
-        display: flex;
-        align-items: center;
-        justify-content: center;
+  .loading-notify {
+    background-color: aqua;
+    height: 18vh;
+    width: 40%;
+    text-align: center;
+    position: absolute;
+    top: 45vh;
+    left: 25vw;
+    border-radius: 5px;
+    border: 1px solid #000000;
+
+    .notification {
+      padding-top: 8px;
+      font-size: 26px;
+      font-weight: 600;
     }
+
+    .go_page {
+      padding-top: 20px;
+
+      a {
+        text-decoration: none;
+        color: #000000;
+      }
+    }
+  }
 }
